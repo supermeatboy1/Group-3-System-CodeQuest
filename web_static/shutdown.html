@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript">
+
+async function sleep(delay) {
+	return new Promise(resolve => setTimeout(resolve, delay));
+}
+
+ws = new WebSocket("ws://127.0.0.1:6588/")
+
+ws.onopen = () => {
+	console.log("Connection opened")
+	ws.send(JSON.stringify({
+		"ShutdownRequest": {
+			"auth_key": "lAQfTUrc2dMu1Z3feOXUAyJDxglhUBjZ"
+		}
+	}))
+}
+ws.onmessage = (event) => {
+	console.log("Data received: ", event.data)
+	ws.close()
+}
+ws.onclose = (event) => {
+	console.log("Connection closed: ", event.code, event.reason);
+}
+ws.onerror = () => {
+	console.log("Connection closed due to error.")
+}
+</script>
+</html>

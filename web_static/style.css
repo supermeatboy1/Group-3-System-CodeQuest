@@ -1,0 +1,150 @@
+* {
+	font-family: Arial;
+	font-size: 1.0em;
+	line-height: 1.0;
+}
+code {
+	font-family: monospace;
+}
+textarea {
+	font-family: monospace;
+	font-size: 1.15em;
+	line-height: 1.25;
+}
+.centered {
+	text-align: center;
+}
+div.tab_list {
+	overflow: auto;
+	white-space: nowrap;
+}
+div[class="tab"] {
+	background-color: #aeaefa;
+	color: black;
+	border: none;
+	border-radius: 0.25rem;
+	padding: 0.75rem 1.25rem;
+	margin: 1.0rem 0.25rem;
+	cursor: pointer;
+	font-weight: 700;
+	display: inline-block;
+}
+div[class="tab"][aria-selected="true"] {
+	background-color: #3333ff;
+	color: white;
+}
+div[class="tab"][aria-selected="false"]:hover {
+	background-color: #ffff00;
+}
+div[class="tab"][aria-selected="true"]:hover {
+	background-color: #888800;
+}
+button[class="tab_close"] {
+	background: none;
+	color: red;
+	border: none;
+	border-radius: 0px;
+	margin-left: 0.25rem;
+}
+button[class="terminal_close"] {
+	background-color: #ef1824;
+	color: black;
+	border: none;
+	border-radius: 0.25rem;
+	padding: 0.30rem 0.66rem;
+	cursor: pointer;
+	font-weight: 700;
+	font-height: 2.0rem;
+	display: inline-block;
+}
+
+#code_input, #test_result_content {
+	width: 96%;
+	margin: auto 2%;
+	resize: vertical;
+	flex-grow: 1;
+}
+
+#code_input {
+	height: 80%;
+}
+
+#test_result_content {
+	height: 50%;
+}
+
+.test_case_container {
+	height: 40%;
+	overflow: hidden;
+}
+
+.popup {
+	display: none;
+	position: fixed;
+	z-index: 1;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	overflow: auto;
+	background-color: rgb(0, 0, 0);
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+.popup_content {
+	background-color: #2f2f2f;
+	margin: 9.9% 9.9%;
+	padding: 16px;
+	border: 1px solid #888;
+	color: #efefef;
+	width: 80%;
+	height: 60%;
+	display: flex;
+	flex-direction: column;
+}
+
+.use_max_dims {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.terminal_content {
+	background-color: #2f2f2f;
+	border: none;
+	color: #efefef;
+	padding: 0.5rem;
+	margin: 0.5rem;
+	font-family: monospace;
+	font-size: 1.05em;
+	resize: none;
+	flex-grow: 1;
+}
+
+.inline_block {
+	display: inline-block;
+}
+
+.align_right {
+	text-align: right;
+}
+
+.container {
+	display: flex;
+	width: 100%;
+}
+
+.left {
+	flex: 2;
+}
+.right {
+	flex: 1;
+}
+
+h1 {
+	font-size: 1.75em;
+}
+
+#terminal_out {
+	font-size: 1.20em
+}

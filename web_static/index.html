@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>lancode.</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="difflib.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="left">
+    <p>Code uploader prototype</p>
+    <p id="ping_ms">Ping: </p>
+
+    <div class="tab_list" id="code_tabs">
+      <div class="tab" aria-selected="true"><span>main.py</span></div>
+    </div>
+
+    <input id="try_execute" type="button" value="Run" onclick="try_execute();" />
+    <input id="try_test_cases" type="button" value="Try Test Cases" onclick="try_test_cases();" />
+
+    <br>
+    <br>
+
+    <label for="code_input">Input code here:</label><br><br>
+    <textarea id="code_input" name="code_input" rows="9" cols="96"></textarea><br><br>
+
+    <div class="popup" id="terminal">
+      <div class="popup_content">
+        <div class="inline_block align_right">
+          <button class="terminal_close" onclick="close_terminal();">X</button>
+        </div>
+        <textarea class="terminal_content" id="terminal_out" readonly="true"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="centered">
+      <h1>Input/Output</h1>
+    </div>
+    <p>Create a program where it asks the user for two numbers and outputs the sum of those numbers.</p>
+    <p>For example:</p>
+    <code>Please input number 1: 5<br>Please input number 2: 7<br>12</code>
+    
+    <br>
+    <hr>
+
+    <div class="test_case_container">
+      <div class="centered">
+        <h2>Test Case 1:</h2>
+      </div>
+      
+      <textarea id="test_result_content" readonly="true" style="background-color: lightgreen; border: none; border-radius: 0.5em;">Please input number 1: 2
+Please input number 2: 3
+5</textarea>
+
+      <br>
+      <br>
+
+      <div class="centered">
+        <input type="button" value="View expected output" onclick="" />
+      </div>
+    </div>
+
+    <div class="test_case_container">
+      <div class="centered">
+        <h2>Test Case 2:</h2>
+      </div>
+      
+      <textarea id="test_result_content" readonly="true" style="background-color: lightgreen; border: none; border-radius: 0.5em;">Please input number 1: 10
+Please input number 2: 25
+35</textarea>
+
+      <br>
+      <br>
+
+      <div class="centered">
+        <input type="button" value="View expected output" onclick="" />
+      </div>
+    </div>
+
+  </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="code_client.js"></script>
+
+</body>
+</html>
