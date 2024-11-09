@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+	content="IE=edge">
+	<meta name="viewport"
+	content="width=device-width, initial-scale=1.0">
+	<title>CodeQuest/Student View</title>
+	<link rel="stylesheet" href="studentView.css">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+	<nav id="top-navigation">
+		<div class="logo-header">
+			<p>Code</p>
+			<p1>Quest</p1>
+			<img src="images/logo.png" height="50" width="50">
+		</div>
+
+		<div class="account-type">
+			<div class="account-type-container">
+				<p>{{student_name}}</p>
+				<img src="images/user.png" height="30" width="30">
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="section-title">
+		<h2>Lessons</h2>
+	</div>
+
+<div id="sidePanel" class="side-panel">
+		<span class="close-btn" onclick="closePanel()">&#10005;</span>
+		<div id="imageContainer">
+			<img id="lessonImage" src="" alt="Lesson Image" />
+		</div>
+	</div>
+
+	<section class="section">
+		<div class="container">
+			<div>
+				<img src="images/bg3.jpg" alt="header" id="header-box" height="300" width="800">
+			</div>
+			<main class="box-container">
+			    <div class="button-container">
+			        <button class="lesson-btn" id="lesson1" onclick="toggleDropdown('dropdown1')">
+			        	<i class='bx bx-chevron-right'></i>
+			        	<div class="text-box">
+				            <h3>Lesson 1</h3>
+				            <h4>Input and Output</h4>
+			        	</div>
+			        </button>
+
+			        <div class="dropdown-content" id="dropdown1">
+       				 	<a href="javascript:void(0)" onclick="showLessonImage('lesson1')">Topic 1: Basics of Input and Output</a>
+        				<a href="/exercise/?exercise_id=1"><button class="quiz-btn">Take Exercise</button></a>
+        			</div>
+
+			        <button class="lesson-btn" id="lesson2" onclick="toggleDropdown('dropdown2')">
+			        	<i class='bx bx-chevron-right'></i>
+			        	<div class="text-box">
+				        	<h3>Lesson 2</h3>
+				            <h4>If/Else Statements</h4>
+			        	</div>
+			        </button>
+
+			        <div class="dropdown-content" id="dropdown2">
+       				 	<a href="javascript:void(0)" onclick="showLessonImage('lesson2')">Topic 2: If/Else Statements</a>
+        				<a href="/exercise/?exercise_id=2"><button class="quiz-btn">Take Exercise</button></a>
+    				</div>
+
+			        <button class="lesson-btn" id="lesson3" onclick="toggleDropdown('dropdown3')">
+			        	<i class='bx bx-chevron-right'></i>
+			        	<div class="text-box">
+				        	<h3>Lesson 3</h3>
+				            <h4>Functions</h4>
+			        	</div>
+			        </button>
+
+			        <div class="dropdown-content" id="dropdown3">
+       				 	<a href="javascript:void(0)" onclick="showLessonImage('lesson3')">Topic 3: Functions</a>
+        				<a href="/exercise/?exercise_id=3"><button class="quiz-btn">Take Exercise</button></a>
+    				</div>
+
+			        <button class="lesson-btn" id="lesson4" onclick="toggleDropdown('dropdown4')">
+			        	<i class='bx bx-chevron-right'></i>
+			        	<div class="text-box">
+				        	<h3>Lesson 4</h3>
+				            <h4>Loops</h4>
+			        	</div>
+			        </button>
+
+			        <div class="dropdown-content" id="dropdown4">
+       				 	<a href="javascript:void(0)" onclick="showLessonImage('lesson4')">Topic 4: Loops</a>
+        				<a href="/exercise/?exercise_id=4"><button class="quiz-btn">Take Exercise</button></a>
+    				</div>
+				</div>
+			</main>
+		</div>
+	</section>
+
+	<script>
+		function toggleDropdown(dropdownId) {
+			var dropdown = document.getElementById(dropdownId);
+			dropdown.classList.toggle("show");
+		}
+
+		const lessons = {
+	'lesson1': 5,
+	'lesson2': 8,
+	'lesson3': 7,
+    'lesson4': 7,
+    // 'lesson5': 6,
+    // 'lesson6': 7
+    // Add more lessons here
+};
+
+function showLessonImage(lessonId) {
+    const imageContainer = document.getElementById("imageContainer");
+    imageContainer.innerHTML = ''; // Clear any previous JPGs or images
+
+    const imageCount = lessons[lessonId] || 0; // Get the number of JPGs for the selected lesson
+    for (let i = 1; i <= imageCount; i++) {
+        const imgElement = document.createElement("img");
+        imgElement.src = `images/${lessonId}/${i}.jpg`; // Use .jpg instead of .png
+        imgElement.alt = `${lessonId} JPG ${i}`;
+        imageContainer.appendChild(imgElement);
+    }
+    document.getElementById("sidePanel").classList.add("show");
+}
+
+		// Close the side panel
+		function closePanel() {
+			// Remove the blur effect
+			document.body.classList.remove("blur");
+
+			// Hide the side panel
+			document.getElementById("sidePanel").classList.remove("show");
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeQuest/Teachers View</title>
+    <link rel="stylesheet" href="teachersView.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <nav id="top-navigation">
+        <div class="logo-header">
+            <p>Code</p>
+            <p1>Quest</p1>
+            <img src="images/logo.png" height="50" width="50">
+        </div>
+
+        <div class="account-type">
+            <div class="account-type-container">
+                <p>Teacher</p>
+                <img src="images/user.png" height="30" width="30">
+            </div>
+        </div>
+    </nav>
+
+    <!-- Table Section for Student Scores -->
+    <section class="section">
+        <div class="pad_header">
+            <h2>Student Scores</h2>
+        </div>
+        <div class="container">
+            <table class="score-table">
+                    <tr bgcolor="#6c588d" width="1700">
+                        <th width="100">Student Name</th>
+                        <th width="100">Lesson 1</th>
+                        <th width="100">Lesson 2</th>
+                        <th width="100">Lesson 3</th>
+                        <th width="100">Lesson 4</th>
+                    </tr>
+                <tbody>
+                    <!--
+                    <tr>
+                        <td>John Doe</td>
+                        <td>85</td>
+                        <td>90</td>
+                        <td>88</td>
+                        <td>92</td>
+                        <td>87</td>
+                        <td>91</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>78</td>
+                        <td>82</td>
+                        <td>85</td>
+                        <td>88</td>
+                        <td>80</td>
+                        <td>86</td>
+                    </tr>
+                    -->
+                    <!-- Add more rows as necessary -->
+                    {{ student_rows }}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

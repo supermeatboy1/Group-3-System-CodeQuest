@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>lancode.</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="difflib.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="left">
+    <h1 class="centered"><img src="/images/logo.png" class="logo" width="64" height="64" />CodeQuest - Code Exercise</h2>
+    <p id="ping_ms">Ping: </p>
+
+    <div class="tab_list" id="code_tabs">
+      <div class="tab" aria-selected="true"><span>main.py</span></div>
+    </div>
+
+    <input id="try_execute" type="button" value="Run" onclick="try_execute();" />
+    <input id="try_test_cases" type="button" value="Try Test Cases" onclick="try_test_cases();" />
+
+    <br>
+    <br>
+
+    <label for="code_input">Input code here:</label><br><br>
+    <textarea id="code_input" name="code_input" rows="9" cols="96"></textarea><br><br>
+
+    <div class="popup" id="terminal">
+      <div class="popup_content">
+        <div class="inline_block align_right">
+          <button class="terminal_close" onclick="close_terminal();">X</button>
+        </div>
+        <textarea class="terminal_content" id="terminal_out" readonly="true"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="right">
+    <div class="centered">
+      <h1>{{exercise_title}}</h1>
+    </div>
+    {{exercise_description}}
+    
+    <br>
+    <hr>
+
+    <div id="scoreboard" class="test_case_container centered">
+        <h1 id="total_score_counter" style="color: #ef2d2d;">Total Score: 0/100</h1>
+        <p id="validation_status"></p>
+        <div id="test_cases_part">
+
+        </div>
+    </div>
+    <!--
+    <div class="test_case_container">
+      <div class="centered">
+        <h2>Test Case 1:</h2>
+      </div>
+      
+      <textarea id="test_result_content" readonly="true" style="background-color: lightgreen; border: none; border-radius: 0.5em;">Please input number 1: 2
+Please input number 2: 3
+5</textarea>
+
+      <br>
+      <br>
+
+      <div class="centered">
+        <input type="button" value="View expected output" onclick="" />
+      </div>
+    </div>
+
+    <div class="test_case_container">
+      <div class="centered">
+        <h2>Test Case 2:</h2>
+      </div>
+      
+      <textarea id="test_result_content" readonly="true" style="background-color: lightgreen; border: none; border-radius: 0.5em;">Please input number 1: 10
+Please input number 2: 25
+35</textarea>
+
+      <br>
+      <br>
+
+      <div class="centered">
+        <input type="button" value="View expected output" onclick="" />
+      </div>
+    </div>
+  -->
+
+    </div>
+
+  </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function get_exercise_id() {
+    return {{exercise_id}}
+  }
+</script>
+
+<script type="text/javascript" src="code_client.js"></script>
+
+</body>
+</html>

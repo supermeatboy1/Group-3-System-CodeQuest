@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+	content="IE=edge">
+	<meta name="viewport"
+	content="width=device-width, initial-scale=1.0">
+	<title>CodeQuest Login/Signup</title>
+	<link rel="stylesheet" href="loginStyle.css">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="wrapper">
+	<nav class="nav">
+		<div class="nav-logo">
+			<img src="images/logo.png" alt="logo" width="80" height="80">	
+			<a>Code</a>
+			<b>Quest</b>
+		</div>
+
+		<div class="nav-button">
+			<button class="btn white-btn" id="signIn" onClick="login()">Sign In</button>
+			<button class="btn" id="signUp" onClick="register()">Sign Up</button>
+		</div>
+
+		<div class="nav-menu-btn">
+			<i class="bx bx-menu" onclick="myMenuFucntion()"></i>
+		</div>
+	</nav>
+
+<!----------------- Form box----------------------->	
+	<div class="form-box">
+
+		<!----------------- login  box----------------------->
+		<form method="post" class="login-container" id="login">
+			<div class="top">
+    			<span>
+       			 Don't have an account? <a href="#" onClick="register()">Sign Up</a>
+   				 </span>
+    			<header>Login</header>
+			</div>
+			<div class="input-box">
+				 	<input type="text" class="input-field" placeholder="Full Name or Email" name="fname_or_email">
+				 	<i class="bx bx-user"></i>
+			</div>
+
+			<div class="input-box">
+				 	<input type="password" class="input-field" placeholder="Password" name="password">
+					<i class="bx bx-lock-alt"></i>
+			</div>
+
+			<div class="input-box">
+				 	<input type="submit" class="input-field" value="Sign In" name="sign_in">
+			</div>
+		</form>
+
+		<!----------------- registration  box----------------------->
+		<form method="post" class="register-container" id="register">
+			<div class="top">
+    			<span>
+       			 Have an account? <a href="#" onClick="login()">Login</a>
+   				 </span>
+    			<header>Sign up</header>
+			</div>
+			
+			<div class="two-forms">
+				 <div class="input-box">
+				 	<input type="text" class="input-field" placeholder="Firstname" name="firstname">
+				 	<i class="bx bx-user"></i>
+				 </div>
+
+				 <div class="input-box">
+				 	<input type="text" class="input-field" placeholder="Lastname" name="lastname">
+				 	<i class="bx bx-user"></i>
+				 </div>
+			</div>
+			<div class="input-box">
+				 	<input type="text" class="input-field" placeholder="Email" name="email">
+				 	<i class="bx bx-envelope"></i>
+			</div>
+
+			<div class="input-box">
+				 	<input type="password" class="input-field" placeholder="Password" name="password">
+					<i class="bx bx-lock-alt"></i>
+			</div>
+
+			<div class="input-box">
+				 	<input type="submit" class="input-field" value="Register" name="register">
+			</div>
+			
+		</form>
+
+		
+	</div>
+</div>
+
+<script>
+	function myMenuFucntion(){
+		var i = document.getElementById("navMenu");
+
+		if(i.className=== "nav-menu"){
+			i.className +=" resposive"
+		}else{
+			i.className = "nav-menu";
+		}
+	}
+
+</script>
+
+
+
+
+<script>
+	var signInButton = document.getElementById("signIn");
+  var signUpButton = document.getElementById("signUp");
+	var x = document.getElementById("login");
+	var y = document.getElementById("register");
+
+
+	function login(){
+		x.style.left = "4px";
+		y.style.right = "-520px";
+		signInButton.style.background = "#6c588d";
+		signInButton.style.color = "#fff";
+    signUpButton.style.background = "rgba(255,255,255,0.4)";
+		x.style.oppacity = 1;
+		y.style.oppacity = 0;
+	}
+
+
+	function register(){
+		x.style.left = "-510px";
+		y.style.right = "5px";
+		signUpButton.style.background = "#6c588d";
+		signUpButton.style.color = "#fff";
+    signInButton.style.background = "rgba(255,255,255,0.4)";
+		x.style.oppacity = 0;
+		y.style.oppacity = 1;
+	}
+</script>
+</body>
+</html>

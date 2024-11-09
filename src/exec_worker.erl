@@ -21,10 +21,18 @@ init([ParentPid]) ->
     State =
         #{running => false,
           parent_pid => ParentPid,
-          os_pid => 0},
+          os_pid => 0,
+          session_id => []},
     {ok, State}.
 
-terminate(_, _State) ->
+terminate(_, State) ->
+    Running = maps:get(running, State),
+    SessionId = maps:get(session_id, State),
+    case Running of
+        true ->
+            _ = exec:run(cmd_gen:docker_kill(SessionId), [stdout, stderr, monitor, {env, [clear]}]);
+        _ -> ok
+    end,
     ok.
 
 % Process management
@@ -77,7 +85,7 @@ handle_cast({execute, python, WorkingDir, SessionId}, StateOld) ->
                 exec:run(
                     cmd_gen:docker_python(AbsoluteDir, SessionId),
                     [stdout, stderr, stdin, monitor, {env, [clear]}]),
-            State = StateOld#{running := true, os_pid := OsPid},
+            State = StateOld#{running := true, os_pid := OsPid, session_id := SessionId},
             {noreply, State};
         _ ->
             {noreply, StateOld}
@@ -86,15 +94,10 @@ handle_cast({stop_task, SessionId}, StateOld) ->
     Running = maps:get(running, StateOld),
     case Running of
         true ->
-            case exec:run(
-                     cmd_gen:docker_kill(SessionId), [stdout, stderr, monitor, {env, [clear]}])
-            of
-                {ok, _ExecPid, _OsPid} ->
-                    ok
-            end;
-        _ ->
-            ok
-    end,
-    {noreply, StateOld};
+            _ = exec:run(cmd_gen:docker_kill(SessionId), [stdout, stderr, monitor, {env, [clear]}]),
+            State = StateOld#{ session_id := [] },
+            {noreply, State};
+        _ -> {noreply, StateOld}
+    end;
 handle_cast(_, State) ->
     {stop, undefined, State}.

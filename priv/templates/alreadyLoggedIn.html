@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible"
+	content="IE=edge">
+	<meta name="viewport"
+	content="width=device-width, initial-scale=1.0">
+	<title>CodeQuest Login/Signup</title>
+	<link rel="stylesheet" href="/loginStyle.css">
+	<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="wrapper">
+	<nav class="nav">
+		<div class="nav-logo">
+			<img src="/images/logo.png" alt="logo" width="80" height="80">	
+			<a>Code</a>
+			<b>Quest</b>
+		</div>
+
+		<div class="nav-button">
+			<a href="{{logged_in_btn_uri}}">
+				<button class="btn white-btn">{{logged_in_btn_text}}</button>
+			</a>
+			<a href="/index.html">
+				<button class="btn white-btn">Home</button>
+		  </a>
+		</div>
+	</nav>
+
+	<div class="msg">
+		<p>{{message}}</p>
+	</div>
+</body>
+</html>

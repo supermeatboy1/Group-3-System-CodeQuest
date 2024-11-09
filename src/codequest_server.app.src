@@ -4,7 +4,7 @@
   {vsn, "0.1.0"},
   {registered, []},
   {mod, {codequest_server_app, []}},
-  {applications, [kernel, stdlib, inets, ranch, cowboy, erlexec]},
+  {applications, [kernel, stdlib, inets, ranch, cowboy, erlexec, syn]},
   {env, []},
   {modules, []},
   {licenses, ["Apache-2.0"]},

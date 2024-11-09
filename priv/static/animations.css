@@ -1,0 +1,20 @@
+@keyframes bottomIn{
+	from{
+		transform: translateY(500px);
+	}
+	to{
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+
+@keyframes zoomIn{
+	fromm{
+		transform: scale(0);
+	}
+	to{
+		transform: scale(1);
+		opacity: 1;
+	}
+}
